@@ -20,8 +20,7 @@
                 Content="Войти" HorizontalAlignment="Left" Margin="412,438,0,0" VerticalAlignment="Top" Width="327" Height="37"  BorderBrush="White" FontSize="18 "/>
         <Button Style="{StaticResource RoundBut}" 
                 Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="412,482,0,0" VerticalAlignment="Top" Width="327" Height="37" BorderBrush="White" FontSize="18 "/>
-      
-        <Image Margin="43,35,487,292" Source="/logo.png" Stretch="Fill"/>
+        <Image Margin="60,60,486,267" Source="/logo.png" Stretch="Fill"/>
 
 
     </Grid>

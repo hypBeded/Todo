@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="Main_empty" Height="450" Width="800">
     <Grid>
-        
+        <Image Margin="0,0,712,346" Source="/Ava.png" Stretch="Fill"/>
+
     </Grid>
+   
 </Window>

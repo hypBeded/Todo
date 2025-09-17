@@ -28,6 +28,6 @@
         <Label Content="Имя пользователя" FontSize ="20" HorizontalAlignment="Left" Margin="412,126,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" BorderBrush="White" Margin="412,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Text="Введите имя пользователя пароль&#xA;" Height="24" 
     FontSize="15"    Foreground="Gray"/>
-        <Image Margin="43,35,487,292" Source="/logo.png" Stretch="Fill"/>
+        <Image Margin="60,66,462,254" Source="/logo.png" Stretch="Fill"/>
     </Grid>
 </Window>
