@@ -23,23 +23,25 @@ namespace Desktop
         {
             InitializeComponent();
         }
-             private void Avatar_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-            {
-                // Открыть плашку при нажатии на аватарку
-                popup.IsOpen = true;
-            }
 
-            private void ChangeProfileImage_Click(object sender, RoutedEventArgs e)
+        private void ClickImage(object sender, MouseButtonEventArgs e)
+        {
+            if (popup.IsOpen)
             {
-                // Логика смены изображения профиля
-                MessageBox.Show("Смена изображения профиля");
+                popup.IsOpen = false; 
             }
+            else
+            {
+                popup.IsOpen = true; 
+            }
+        }
+        private void ChangeProfileImage_Click(object sender, RoutedEventArgs e)
+        { 
+        }
 
-            private void Logout_Click(object sender, RoutedEventArgs e)
-            {
-                // Логика выхода
-                MessageBox.Show("Выход из системы");
-            }
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+        }
      }
 }
 
