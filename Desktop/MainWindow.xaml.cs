@@ -48,6 +48,5 @@ namespace Desktop
             registration.Show();
             this.Close();
         }
-
     }
 }
