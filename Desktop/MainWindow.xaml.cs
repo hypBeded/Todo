@@ -37,7 +37,9 @@ namespace Desktop
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
+           Main_empty main_empty = new Main_empty();
+           main_empty.Show();
+           this.Close();
         }
     }
 }

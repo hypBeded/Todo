@@ -15,9 +15,9 @@
         <TextBox HorizontalAlignment="Left" BorderBrush="White" Margin="412,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Text="Введите пароль&#xA;" Height="24" 
             FontSize="15"    Foreground="Gray"/>
 
-        <Button Style="{StaticResource RoundBut}" 
+        <Button Style="{StaticResource RoundBut15}" 
             Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="412,460,0,0" VerticalAlignment="Top" Width="327" Height="37"  BorderBrush="White" FontSize="18 "/>
-        <Button Style="{StaticResource RoundBut}" 
+        <Button Style="{StaticResource RoundBut15}" 
             Content="Назад" HorizontalAlignment="Left" Margin="412,504,0,0" VerticalAlignment="Top" Width="327" Height="37" BorderBrush="White" FontSize="18 "/>
 
 
