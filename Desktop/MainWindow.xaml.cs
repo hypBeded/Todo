@@ -41,5 +41,12 @@ namespace Desktop
            main_empty.Show();
            this.Close();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Registration registration = new Registration();
+            registration.Show();
+            this.Close();
+        }
     }
 }
