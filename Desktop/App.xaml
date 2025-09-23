@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Desktop"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <Style x:Key="RoundBut" TargetType="Button">
+        <Style x:Key="RoundBut15" TargetType="Button">
             <Setter Property="Background" Value="#F96060"/>
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Template" >
@@ -16,6 +16,24 @@
                             VerticalAlignment="Center" 
                             Content="{TemplateBinding Content}" 
                             ContentTemplate="{TemplateBinding ContentTemplate}">
+                            </ContentPresenter >
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="RoundBut10" TargetType="Button">
+            <Setter Property="Background" Value="#F96060"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1">
+                            <ContentPresenter 
+                     HorizontalAlignment="Center" 
+                     VerticalAlignment="Center" 
+                     Content="{TemplateBinding Content}" 
+                     ContentTemplate="{TemplateBinding ContentTemplate}">
                             </ContentPresenter >
                         </Border>
                     </ControlTemplate>
