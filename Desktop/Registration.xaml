@@ -16,9 +16,9 @@
             FontSize="15"    Foreground="Gray"/>
 
         <Button Style="{StaticResource RoundBut15}" 
-            Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="412,460,0,0" VerticalAlignment="Top" Width="327" Height="37"  BorderBrush="White" FontSize="18 "/>
+            Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="412,460,0,0" VerticalAlignment="Top" Width="327" Height="37"  BorderBrush="White" FontSize="18 " Click="Registation"/>
         <Button Style="{StaticResource RoundBut15}" 
-            Content="Назад" HorizontalAlignment="Left" Margin="412,504,0,0" VerticalAlignment="Top" Width="327" Height="37" BorderBrush="White" FontSize="18 "/>
+            Content="Назад" HorizontalAlignment="Left" Margin="412,504,0,0" VerticalAlignment="Top" Width="327" Height="37" BorderBrush="White" FontSize="18 " Click="BackToLogIn" />
 
 
         <Label Content="Повторите пароль" FontSize ="20" HorizontalAlignment="Left" Margin="412,358,0,0" VerticalAlignment="Top"/>

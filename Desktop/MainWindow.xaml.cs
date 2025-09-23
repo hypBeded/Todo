@@ -35,18 +35,19 @@ namespace Desktop
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void LogIn(object sender, RoutedEventArgs e)
         {
            Main_empty main_empty = new Main_empty();
            main_empty.Show();
            this.Close();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Registation(object sender, RoutedEventArgs e)
         {
             Registration registration = new Registration();
             registration.Show();
             this.Close();
         }
+
     }
 }

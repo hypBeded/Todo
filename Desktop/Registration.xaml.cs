@@ -23,5 +23,19 @@ namespace Desktop
         {
             InitializeComponent();
         }
+
+        private void Registation(object sender, RoutedEventArgs e)
+        {
+            Main_empty main_empty = new Main_empty();
+            main_empty.Show();
+            this.Close();
+        }
+        private void BackToLogIn(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+        
     }
 }
