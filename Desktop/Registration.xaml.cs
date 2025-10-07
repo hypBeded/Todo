@@ -41,7 +41,7 @@ namespace Desktop
             string repeatPassword = TBRepeatPassword.Text;
             string login = TBUserName.Text;
 
-            string Error = " ";
+           
 
             if (login.Length < 3)
             {

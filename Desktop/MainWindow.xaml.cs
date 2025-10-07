@@ -30,7 +30,7 @@ namespace Desktop
         public MainWindow()
         {
             InitializeComponent();
-            UR.UserRegistration("HypBed", "YmarCham07", "uymaevymat@gmail.com");
+            UR.UserRegistration("hypbed", "123456", "test@gmail.com");
         }
 
         private void LogIn(object sender, RoutedEventArgs e)

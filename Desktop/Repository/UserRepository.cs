@@ -14,8 +14,7 @@ namespace Desktop.Repository
   
         public void UserRegistration(string login, string password, string email)
         {
-
-            if (registredUser.Exists(l => l.Login == login && l.Email == email ))
+            if (registredUser.Exists(l => l.Login == login || l.Email== email))
             {
                 throw new Exception("Пользователь с таким логином или почтой уже сущетсвует");
                 
