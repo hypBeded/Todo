@@ -11,9 +11,12 @@ namespace Desktop.Repository
     public class UserRepository
     {
         private List<UserModel> registredUser = new List<UserModel>();
-
+       
+       
+    
         public void UserRegistration(string login, string password, string email)
         {
+
             if (registredUser.Exists(l => l.Login == login && l.Email == email ))
             {
                 throw new Exception("Пользователь с таким логином или почтой уже сущетсвует");

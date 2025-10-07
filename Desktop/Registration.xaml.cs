@@ -82,7 +82,8 @@ namespace Desktop
             }
             else
             {
-                Main_empty Main_empty = new Main_empty();
+                string a = "Dd";
+                Main_empty Main_empty = new Main_empty(a);
                 Main_empty.Show();
                 this.Close();
             }
@@ -92,6 +93,55 @@ namespace Desktop
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
+        }
+
+        private void TBUserName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBUserName.Text == "Введите имя пользователя") ;
+                TBUserName.Text = string.Empty;
+        }
+
+        private void TBUserName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TBUserName.Text));
+            TBUserName.Text = "Введите имя пользователя";
+        }
+
+        private void TBEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBEmail.Text == "Ввеедите почту");
+            TBEmail.Text = string.Empty;
+            
+        }
+
+        private void TBEmail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TBEmail.Text));
+            TBEmail.Text = "Ввеедите почту";
+        }
+
+        private void TBPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBPassword.Text == "Введите пароль");
+            TBPassword.Text = string.Empty;
+        }
+
+        private void TBPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TBPassword.Text));
+            TBPassword.Text = "Введите пароль";
+        }
+
+        private void TBRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBRepeatPassword.Text == "Повторите пароль") ;
+            TBRepeatPassword.Text = string.Empty;
+        }
+
+        private void TBRepeatPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TBRepeatPassword.Text));
+            TBRepeatPassword.Text = "Повторите пароль";
         }
     }
 }

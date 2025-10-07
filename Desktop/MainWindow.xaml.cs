@@ -85,15 +85,6 @@ namespace Desktop
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
-
-
-
-
-
-
-
-
         }
 
         private void Registation(object sender, RoutedEventArgs e)
@@ -101,6 +92,32 @@ namespace Desktop
             Registration registration = new Registration();
             registration.Show();
             this.Close();
+        }
+
+        private void TBEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBEmail.Text == "Почта");
+            TBEmail.Text = string.Empty;
+        }
+
+        private void TBEmail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TBEmail.Text)) ;
+            TBEmail.Text = "Почта";
+            
+        }
+
+        private void TBPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(TBPassword.Text));
+            TBPassword.Text = "Пароль";
+        }
+
+        private void TBPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            
+            if (TBPassword.Text == "Пароль")
+            TBPassword.Text = String.Empty;
         }
     }
 }
