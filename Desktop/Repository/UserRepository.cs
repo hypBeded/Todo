@@ -11,9 +11,7 @@ namespace Desktop.Repository
     public class UserRepository
     {
         private List<UserModel> registredUser = new List<UserModel>();
-       
-       
-    
+  
         public void UserRegistration(string login, string password, string email)
         {
 

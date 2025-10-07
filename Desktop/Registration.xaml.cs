@@ -45,33 +45,28 @@ namespace Desktop
 
             if (login.Length < 3)
             {
-                Error += "Имя пользователя должно состоять минимум из 3 символов. ";
+                MessageBox.Show("Имя пользователя должен состоять минимум из 3 символов", "Ошибка");
+                return; 
             }
 
             if (!Validate.ValidateEmail(email))
             {
-                Error += "Неккоретная почта. ";
-
+                MessageBox.Show("Некорректный email.", "Ошибка");
+                return; 
             }
 
             if (!Validate.ValidatePassword(password))
             {
-                Error += "Пароль должен состоять как минимум из 6 символов. ";
-
+                MessageBox.Show("Пароль должен содержать минимум 6 символов.", "Ошибка");
+                return; 
             }
 
             if (password != repeatPassword)
             {
-                Error += "Пароли не совпадают. ";
+                MessageBox.Show("Пароли не совпадают.", "Ошибка");
+                return; 
+            }
 
-            }
-            if (!string.IsNullOrEmpty(Error))
-            {
-                MessageBox.Show(Error, "Ошибка");
-                return;
-            }
-            else
-            {
                 try
                 {
                     UR.UserRegistration(login, password, email);
@@ -83,7 +78,7 @@ namespace Desktop
                 {
                     MessageBox.Show(ex.Message, "Ошибка");
                 }
-            }
+            
         }
 
 

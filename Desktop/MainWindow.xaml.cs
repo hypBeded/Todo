@@ -30,6 +30,7 @@ namespace Desktop
         public MainWindow()
         {
             InitializeComponent();
+            UR.UserRegistration("HypBed", "YmarCham07", "uymaevymat@gmail.com");
         }
 
         private void LogIn(object sender, RoutedEventArgs e)
@@ -38,23 +39,20 @@ namespace Desktop
             string password = TBPassword.Text;
 
             //Проверка полей на правильность с последующий входом
-            string Error = " ";
-                if (!validate.ValidateEmail(email))
-                {
-                    Error += "Неккореткная почта. ";
-                
-                }
-                if (!validate.ValidatePassword(password))
-                {
-                    Error += "Пароль должен содержать минимум 6 символов.";
-                
-                }
-                if (!string.IsNullOrEmpty(Error))
-                {
-                    MessageBox.Show(Error, "Ошибка");
-                    return;
-                }
-                else
+
+            if (!validate.ValidateEmail(email))
+            {
+                MessageBox.Show("Некорректный email.", "Ошибка");
+                return;
+            }
+
+            if (!validate.ValidatePassword(password))
+            {
+                MessageBox.Show("Пароль должен содержать минимум 6 символов.", "Ошибка");
+                return;
+            }
+
+            else
                 {
                     try
                     {
