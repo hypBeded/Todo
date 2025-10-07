@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Desktop.Repository;
 
 namespace Desktop
 {
@@ -54,9 +55,12 @@ namespace Desktop
 
         private void LogIn(object sender, RoutedEventArgs e)
         {
+            UserRepository UR = new UserRepository();
+            Validate validate = new Validate();
+
             string email = TBEmail.Text;
             string password = TBPassword.Text;
-            Validate validate = new Validate();
+            
             string errorMessages = "";
 
             if (!validate.ValidatePassword(password))
@@ -68,23 +72,28 @@ namespace Desktop
             {
                 errorMessages += "Не существует такой почты. ";
             }
-            
-            
-           /* if (!string.IsNullOrEmpty(errorMessages))
-            {
-                MessageBox.Show(errorMessages);
-            }
-            else
-            {
-                Main_empty Main_empty = new Main_empty();
-                Main_empty.Show();
-                this.Close();
 
-            } */
-            
-            Main_empty main_empty = new Main_empty();
-           main_empty.Show();
-           this.Close(); 
+               try
+            {
+                var user = UR.UserAuthenticate(email, password);
+                MessageBox.Show($"Добро пожаловать, {user.Login}!", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                Main_empty main_Empty = new Main_empty(user.Login);
+                main_Empty.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+
+
+
+
+
+
+
         }
 
         private void Registation(object sender, RoutedEventArgs e)

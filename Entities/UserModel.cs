@@ -12,5 +12,12 @@ namespace Entities
         public string Password { get; set; }
 
         public string Email { get; set; }
+
+        public UserModel(string login, string password, string email)
+        {
+            Login = login;
+            Password = password;
+            Email = email;
+        }
     }
 }
