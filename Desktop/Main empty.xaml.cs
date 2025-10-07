@@ -23,7 +23,7 @@ namespace Desktop
         {
             InitializeComponent();
         }
-
+        
         private void ClickImage(object sender, MouseButtonEventArgs e)
         {
             if (popup.IsOpen)
@@ -41,6 +41,9 @@ namespace Desktop
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
         }
      }
 }
