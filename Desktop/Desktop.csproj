@@ -77,6 +77,7 @@
       <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Validate.cs" />
     <Page Include="Main empty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

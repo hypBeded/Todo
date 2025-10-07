@@ -11,9 +11,9 @@
         <Label Content="Почта" FontSize ="20"  HorizontalAlignment="Left" Margin="412,199,0,0" VerticalAlignment="Top"/>
         <Label Content="Пароль" FontSize ="20" HorizontalAlignment="Left" Margin="412,280,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TBEmail" HorizontalAlignment="Left" BorderBrush="White" Margin="412,235,0,0" TextWrapping="Wrap" Text="Введите почту" VerticalAlignment="Top" Width="266" Height="24" 
-            FontSize="16" Foreground="Gray" GotFocus="TBEmail_GotFocus" LostFocus="TBEmail_LostFocus"  />
+            FontSize="16" Foreground="Gray"  />
         <TextBox x:Name="TBPassword" HorizontalAlignment="Left" BorderBrush="White" Margin="412,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Text="Введите пароль&#xA;" Height="24" 
-            FontSize="15"    Foreground="Gray" GotFocus="TBPassword_GotFocus" LostFocus="TBPassword_LostFocus" />
+            FontSize="15"    Foreground="Gray" />
 
         <Button Style="{StaticResource RoundBut15}" 
             Content="Зарегистрироваться" HorizontalAlignment="Left" Margin="412,460,0,0" VerticalAlignment="Top" Width="327" Height="37"  BorderBrush="White" FontSize="18 " Click="Registation"/>
@@ -23,11 +23,11 @@
 
         <Label Content="Повторите пароль" FontSize ="20" HorizontalAlignment="Left" Margin="412,358,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="TBRepeatPassword" HorizontalAlignment="Left" BorderBrush="White" Margin="412,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Text="Повторите пароль&#xA;" Height="24" 
-    FontSize="15"    Foreground="Gray" GotFocus="TBRepeatPassword_GotFocus" LostFocus="TBRepeatPassword_LostFocus"/>
+    FontSize="15"    Foreground="Gray" />
 
         <Label Content="Имя пользователя" FontSize ="20" HorizontalAlignment="Left" Margin="412,126,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TBUserName" HorizontalAlignment="Left" BorderBrush="White" Margin="412,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Text="Введите имя пользователя пароль&#xA;" Height="24" 
-    FontSize="15"    Foreground="Gray" GotFocus="TBUserName_GotFocus" LostFocus="TBUserName_LostFocus" />
+        <TextBox x:Name="TBUserName" HorizontalAlignment="Left" BorderBrush="White" Margin="412,164,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Text="Введите имя пользователя" Height="24" 
+    FontSize="15"    Foreground="Gray"/>
         <Image Margin="60,66,462,254" Source="/logo.png" Stretch="Fill"/>
     </Grid>
 </Window>

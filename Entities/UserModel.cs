@@ -19,11 +19,5 @@ namespace Entities
             Password = password;
             Email = email;
         }
-    
-
-        static string a = " HypBed";
-        static string b = " 123456";
-        static string c = " uymaevymat@gmail.com";
-        UserModel usermodel = new UserModel(a, b, c);
     }
 }
