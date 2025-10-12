@@ -19,10 +19,10 @@ namespace Desktop
     /// </summary>
     public partial class Main_empty : Window
     {
-        public Main_empty(string login)
+        public Main_empty()
         {
             InitializeComponent();
-            string Login = login;
+            
         }
         
         private void ClickImage(object sender, MouseButtonEventArgs e)

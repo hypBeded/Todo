@@ -30,13 +30,13 @@ namespace Desktop
         public MainWindow()
         {
             InitializeComponent();
-            UR.UserRegistration("hypbed", "123456", "test@gmail.com");
+            UR.UserRegistration("HypBed", "123456", "uym@gmail.com");
         }
 
         private void LogIn(object sender, RoutedEventArgs e)
         {
-            string email = TBEmail.Text;
-            string password = TBPassword.Text;
+            string email = TBEmail.Text.Trim().ToLower();
+            string password = TBPassword.Text.Trim();
 
             //Проверка полей на правильность с последующий входом
 
@@ -51,13 +51,10 @@ namespace Desktop
                 MessageBox.Show("Пароль должен содержать минимум 6 символов.", "Ошибка");
                 return;
             }
-
-            else
-                {
                     try
                     {
                         var user = UR.UserAuthenticate(email, password);
-                        Main_empty main_Empty = new Main_empty(user.Login);
+                        Main_empty main_Empty = new Main_empty();
                         main_Empty.Show();
                         this.Close();
                     }
@@ -66,7 +63,6 @@ namespace Desktop
                         MessageBox.Show(ex.Message, "Ошибка");
                         return;
                     }
-                }
         }
 
         private void Registation(object sender, RoutedEventArgs e)

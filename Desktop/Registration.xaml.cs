@@ -36,10 +36,10 @@ namespace Desktop
 
         private void Registation(object sender, RoutedEventArgs e)
         {
-            string email = TBEmail.Text;
-            string password = TBPassword.Text;
-            string repeatPassword = TBRepeatPassword.Text;
-            string login = TBUserName.Text;
+            string email = TBEmail.Text.Trim().ToLower();
+            string password = TBPassword.Text.Trim();
+            string repeatPassword = TBRepeatPassword.Text.Trim();
+            string login = TBUserName.Text.Trim();
 
            
 
@@ -67,22 +67,17 @@ namespace Desktop
                 return; 
             }
 
-                try
+                if (UR.UserRegistration(login, password, email))
                 {
-                    UR.UserRegistration(login, password, email);
-                    Main_empty main_Empty = new Main_empty(login);
+                    Main_empty main_Empty = new Main_empty();
                     main_Empty.Show();
                     this.Close();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, "Ошибка");
+                    return;
                 }
-            
         }
-
-
-
 
         private void BackToLogIn(object sender, RoutedEventArgs e)
         {

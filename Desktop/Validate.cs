@@ -13,9 +13,10 @@ namespace Desktop
 
             public bool ValidateEmail(string email)
             {
-                if (string.IsNullOrEmpty(email))
-                    return false;
-
+                    if (string.IsNullOrEmpty(email))
+                    {
+                        return false;
+                    }
                 return Regex.IsMatch(email, emailPattern);
             }
             public bool ValidatePassword(string Password)
