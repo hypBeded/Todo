@@ -72,6 +72,35 @@ namespace Desktop
             this.Close();
         }
 
-        
+        private void TBEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBEmail.Text == "Почта")
+            {
+                TBEmail.Text = string.Empty;
+            }
+        }
+
+        private void TBEmail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TBEmail.Text)) {
+                TBEmail.Text = "Почта";
+            }
+        }
+
+        private void TBPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBPassword.Text == "Пароль")
+            {
+                TBPassword.Text = string.Empty;
+            }
+        }
+
+        private void TBPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TBPassword.Text))
+            {
+                TBPassword.Text = "Пароль";
+            }
+        }
     }
 }

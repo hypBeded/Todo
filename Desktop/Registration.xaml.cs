@@ -85,5 +85,69 @@ namespace Desktop
             mainWindow.Show();
             this.Close();
         }
+
+        private void TBUserName_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if(TBUserName.Text == "Введите имя пользователя")
+            {
+                TBUserName.Text = string.Empty;
+            }
+        }
+
+        private void TBUserName_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TBUserName.Text))
+            {
+                TBUserName.Text = "Введите имя пользователя";
+            }
+        }
+
+        private void TBEmail_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBEmail.Text == "Введите почту")
+            {
+                TBEmail.Text = string.Empty;
+            }
+        }
+
+        private void TBEmail_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TBEmail.Text))
+            {
+                TBEmail.Text = "Введите почту";
+            }
+        }
+
+        private void TBPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBPassword.Text == "Введите пароль")
+            {
+                TBPassword.Text = string.Empty;
+            }
+        }
+
+        private void TBPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TBPassword.Text))
+            {
+                TBPassword.Text = "Введите пароль";
+            }
+        }
+
+        private void TBRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (TBRepeatPassword.Text == "Повторите пароль")
+            {
+                TBRepeatPassword.Text = string.Empty;
+            }
+        }
+
+        private void TBRepeatPassword_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(TBRepeatPassword.Text))
+            {
+                TBRepeatPassword.Text = "Повторите пароль";
+            }
+        }
     }
 }
