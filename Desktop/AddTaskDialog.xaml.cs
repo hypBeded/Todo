@@ -20,12 +20,36 @@ namespace Desktop
     /// </summary>
     public partial class AddTaskDialog : Window
     {
-
+        private UserModel _currentUser;
+        TaskRepository TR = new TaskRepository();
         
 
-        public AddTaskDialog()
+        public AddTaskDialog(UserModel user)
         {
-            InitializeComponent();
+            InitializeComponent();  
+            _currentUser = user;
         }
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string name = Name.Text;
+            string category = Category.Text;
+            string description = Description.Text;
+            DateTime date = DTP.SelectedDate ?? DateTime.Now;
+            DateTime time = DateTime.Now;
+            bool status = false;
+
+
+            if (TR.NewTask(name, category, description, time, date, status, _currentUser))
+            {
+                MessageBox.Show("Задача успешно создана!");
+
+                Main main = new Main(_currentUser);
+                main.Show();
+                
+
+                this.Close(); // Закрываем диалоговое окно
+            }
+
+    }
     }
 }

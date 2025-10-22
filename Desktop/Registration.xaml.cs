@@ -66,17 +66,19 @@ namespace Desktop
                 MessageBox.Show("Пароли не совпадают.", "Ошибка");
                 return; 
             }
+            try
+            {
+                var user = UR.UserRegistration(login, password, email);
 
-                if (UR.UserRegistration(login, password, email))
-                {
-                    Main_empty main_Empty = new Main_empty(login);
-                    main_Empty.Show();
-                    this.Close();
-                }
-                else
-                {
-                    return;
-                }
+                Main_empty main_Empty = new Main_empty(user);
+                main_Empty.Show();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка");
+                return;
+            }
         }
 
         private void BackToLogIn(object sender, RoutedEventArgs e)

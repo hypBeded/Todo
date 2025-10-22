@@ -110,19 +110,19 @@
             </Setter>
         </Style>
     </Window.Resources>
-    <Grid Background="LightGray" >
+    <Grid Background="LightGray">
         
         <Label Content="Название" HorizontalAlignment="Left" Margin="30,25,0,0" VerticalAlignment="Top"/>
         <Label Content="Категория" HorizontalAlignment="Left" Margin="30,80,0,0" VerticalAlignment="Top"/>
         <Label Content="Описание" HorizontalAlignment="Left" Margin="30,133,0,0" VerticalAlignment="Top"/>
 
-        <DatePicker HorizontalAlignment="Left" Margin="225,81,0,0" VerticalAlignment="Top" Height="23" Width="165"/>
+        <DatePicker x:Name="DTP" HorizontalAlignment="Left" Margin="225,81,0,0" VerticalAlignment="Top" Height="23" Width="165"/>
 
-        <TextBox Style="{DynamicResource BorderRadius}" Height="24" Width="160"  HorizontalAlignment="Left" Margin="30,51,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
-        <TextBox Style="{DynamicResource BorderRadius}" Height="24" Width="160"   HorizontalAlignment="Left" Margin="30,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" />
-        <TextBox Style="{DynamicResource BorderRadius}" Height="51" Width="160"  HorizontalAlignment="Left" Margin="30,159,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
-        <Button Style="{DynamicResource ButtonStyle1}" Foreground="White" Background="Green" BorderBrush="LightGray" Content="Создать" HorizontalAlignment="Left" Margin="30,225,0,0" VerticalAlignment="Top" Width="170"/>
-        <Button Style="{DynamicResource ButtonStyle1}" Foreground="White" Background="#F96033" BorderBrush="LightGray" Content="Отмена" HorizontalAlignment="Left" Margin="225,225,0,0" VerticalAlignment="Top" Width="165"/>
+        <TextBox x:Name="Name" Style="{DynamicResource BorderRadius}" Height="24" Width="160"  HorizontalAlignment="Left" Margin="30,51,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <TextBox x:Name="Category" Style="{DynamicResource BorderRadius}" Height="24" Width="160"   HorizontalAlignment="Left" Margin="30,109,0,0" TextWrapping="Wrap" VerticalAlignment="Top" />
+        <TextBox x:Name="Description" Style="{DynamicResource BorderRadius}" Height="51" Width="160"  HorizontalAlignment="Left" Margin="30,159,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" />
+        <Button Style="{DynamicResource ButtonStyle1}" Foreground="White" Background="Green" BorderBrush="LightGray" Content="Создать" HorizontalAlignment="Left" Margin="30,225,0,0" VerticalAlignment="Top" Width="170" Height="20" Click="Button_Click" />
+        <Button Style="{DynamicResource ButtonStyle1}" Foreground="White" Background="#F96033" BorderBrush="LightGray" Content="Отмена" HorizontalAlignment="Left" Margin="225,225,0,0" VerticalAlignment="Top" Width="170" Height="20"/>
 
 
     </Grid>

@@ -11,11 +11,12 @@ namespace Desktop
     public class TaskRepository
     {
         static private List<TaskModel> Tasks = new List<TaskModel>();
-        public bool NewTask(string name, string category, string description, DateTime time, DateTime date, string status)
+        public bool NewTask(string name, string category, string description, DateTime time, DateTime date, bool status, UserModel user)
         {
             if (!Tasks.Exists(u => u.Name == name))
             {
                 var newTask = new TaskModel(name, category, description, time, date, status);
+                Tasks.Add(newTask); // Добавляем задачу пользователю
                 return true;
             }
             MessageBox.Show("Задача с таким именем уже существует");

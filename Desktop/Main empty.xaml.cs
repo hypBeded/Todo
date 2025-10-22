@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,10 +20,13 @@ namespace Desktop
     /// </summary>
     public partial class Main_empty : Window
     {
-        public Main_empty(string nickName )
+        private UserModel _currentUser;
+        public Main_empty(UserModel user)
         {
             InitializeComponent();
-            NickName.Content = nickName;
+            _currentUser = user;
+            NickName.Content = user.Login;
+
         }
         
         private void ClickImage(object sender, MouseButtonEventArgs e)
@@ -43,9 +47,11 @@ namespace Desktop
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddTaskDialog addTaskDialog = new AddTaskDialog();
+            AddTaskDialog addTaskDialog = new AddTaskDialog(_currentUser);
             addTaskDialog.ShowDialog();
         }
+
+       
     }
 }
 

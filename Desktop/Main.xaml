@@ -27,7 +27,9 @@
 
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="343" Height="452"  Background="AliceBlue" Margin="160,100,0,0">
-
+            <ListView x:Name="TasksListView">
+               
+            </ListView>
 
 
         </StackPanel>

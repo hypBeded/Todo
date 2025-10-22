@@ -30,7 +30,7 @@ namespace Desktop
         public MainWindow()
         {
             InitializeComponent();
-            UR.UserRegistration("HypBed", "123456", "uym@gmail.com");
+            UR.UserRegistration("HypBed", "123456", "uym@gmail.com", null);
         }
 
         private void LogIn(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ namespace Desktop
                     try
                     {
                         var user = UR.UserAuthenticate(email, password);
-                        Main_empty main_Empty = new Main_empty(user.Login);
+                        Main_empty main_Empty = new Main_empty(user);
                         main_Empty.Show();
                         this.Close();
                     }

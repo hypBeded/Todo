@@ -11,24 +11,24 @@ namespace Desktop.Repository
     public class UserRepository
     {
         private static List<UserModel> registredUser = new List<UserModel>();
-  
-        public bool UserRegistration(string login, string password, string email)
+
+        public UserModel UserRegistration(string login, string password, string email, List<TaskModel>  tasks )
         {
             if (registredUser.Exists(l => l.Login == login))
             {
-                MessageBox.Show("Пользователь с таким логином уже существует");
-                return false;
-            }
 
+                throw new Exception("Пользователь с таким логином уже существует");
+            }
             if (registredUser.Exists(l => l.Email == email))
             {
-                MessageBox.Show("Пользователь с такой почтой уже существует");
-                return false;
+                
+                throw new Exception("Пользователь с такой почтой уже существует");
             }
 
             var newUser = new UserModel(login, password, email);
             registredUser.Add(newUser);
-            return true;
+            return newUser;
+            
         }
         public UserModel UserAuthenticate(string email, string password)
         {
