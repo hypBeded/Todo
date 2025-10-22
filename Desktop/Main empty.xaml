@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Main_empty" Height="600" Width="800" ResizeMode="NoResize" >
     <Grid>
-        <Image Margin="10,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Ava.png" 
+        <Image Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Ava.png" 
                Stretch="Fill" Width="110" Height="110.10" MouseLeftButtonDown="ClickImage" />
         <Button Style="{StaticResource RoundBut10}" Margin="0,170,0,0" FontSize="25"  Height="50" Width=" 300"
                 Content="Создать первую задачу"                                                                 />
