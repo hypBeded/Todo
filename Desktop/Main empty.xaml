@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="Main_empty" Height="600" Width="800" ResizeMode="NoResize" >
     <Grid>
+        <Label x:Name="NickName" Width="140" Content="Имя пользователя" HorizontalAlignment="Left" Margin="10,130,0,0" FontSize="15" HorizontalContentAlignment="Center" VerticalAlignment="Top"/>
+
         <Image Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Ava.png" 
                Stretch="Fill" Width="110" Height="110.10" MouseLeftButtonDown="ClickImage" />
         <Button Style="{StaticResource RoundBut10}" Margin="0,170,0,0" FontSize="25"  Height="50" Width=" 300"
-                Content="Создать первую задачу"                                                                 />
+                Content="Создать первую задачу" Click="Button_Click"                                                                 />
         <Label Content="Добро пожаловать!" HorizontalAlignment="Center" Margin="0,110,120,0" VerticalAlignment="Top" FontSize="34" />
         <Label Content="Создайте свою первую &#xD;&#xA;задачу!" HorizontalAlignment="Center" Margin="0,170,60,0" VerticalAlignment="Top" FontSize="34" />
         <Popup x:Name="popup" Placement="Left" AllowsTransparency="True">

@@ -69,7 +69,7 @@ namespace Desktop
 
                 if (UR.UserRegistration(login, password, email))
                 {
-                    Main_empty main_Empty = new Main_empty();
+                    Main_empty main_Empty = new Main_empty(login);
                     main_Empty.Show();
                     this.Close();
                 }

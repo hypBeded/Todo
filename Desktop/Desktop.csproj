@@ -70,6 +70,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddTaskDialog.xaml.cs">
+      <DependentUpon>AddTaskDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Main empty.xaml.cs">
       <DependentUpon>Main empty.xaml</DependentUpon>
     </Compile>
@@ -81,6 +84,10 @@
     </Compile>
     <Compile Include="UserRepository.cs" />
     <Compile Include="Validate.cs" />
+    <Page Include="AddTaskDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Main empty.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

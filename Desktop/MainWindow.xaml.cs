@@ -54,7 +54,7 @@ namespace Desktop
                     try
                     {
                         var user = UR.UserAuthenticate(email, password);
-                        Main_empty main_Empty = new Main_empty();
+                        Main_empty main_Empty = new Main_empty(user.Login);
                         main_Empty.Show();
                         this.Close();
                     }

@@ -19,10 +19,10 @@ namespace Desktop
     /// </summary>
     public partial class Main_empty : Window
     {
-        public Main_empty()
+        public Main_empty(string nickName )
         {
             InitializeComponent();
-            
+            NickName.Content = nickName;
         }
         
         private void ClickImage(object sender, MouseButtonEventArgs e)
@@ -40,6 +40,12 @@ namespace Desktop
             mainWindow.Show();
             this.Close();
         }
-     }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            AddTaskDialog addTaskDialog = new AddTaskDialog();
+            addTaskDialog.ShowDialog();
+        }
+    }
 }
 
