@@ -13,6 +13,8 @@ namespace Entities
 
         public string Email { get; set; }
 
+        public List<TaskModel> Tasks { get; set; }
+
         public UserModel(string login, string password, string email)
         {
             Login = login;
