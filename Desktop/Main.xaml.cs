@@ -2,6 +2,7 @@
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,9 +23,16 @@ namespace Desktop
     public partial class Main : Window
     {
         
+     
+        UserModel _currentUser;
         public Main(UserModel user)
         {
             InitializeComponent();
+            _currentUser = user;
+            TasksListView.ItemsSource = _currentUser.UTasks;
+
+            
         }
+       
     }
 }

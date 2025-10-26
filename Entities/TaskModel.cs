@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Entities
 {
-    public class TaskModel
+    public class TaskModel 
     {
         public string Name { get; set; }
         string Category { get; set; }
@@ -14,9 +16,8 @@ namespace Entities
         DateTime Date { get; set; }
         DateTime Time { get; set; }
         bool Status {  get; set; }
-       
-    
 
+        
         public TaskModel(string name, string category, string description, DateTime time, DateTime date, bool status)
         {
             Name = name;
@@ -27,6 +28,7 @@ namespace Entities
             Status = status;
             
         }
+        
 
 
     }

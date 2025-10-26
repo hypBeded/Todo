@@ -87,7 +87,7 @@ namespace Desktop
             mainWindow.Show();
             this.Close();
         }
-
+///
         private void TBUserName_GotFocus(object sender, RoutedEventArgs e)
         {
             if(TBUserName.Text == "Введите имя пользователя")
@@ -95,7 +95,6 @@ namespace Desktop
                 TBUserName.Text = string.Empty;
             }
         }
-
         private void TBUserName_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TBUserName.Text))
@@ -103,7 +102,6 @@ namespace Desktop
                 TBUserName.Text = "Введите имя пользователя";
             }
         }
-
         private void TBEmail_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TBEmail.Text == "Введите почту")
@@ -111,7 +109,6 @@ namespace Desktop
                 TBEmail.Text = string.Empty;
             }
         }
-
         private void TBEmail_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TBEmail.Text))
@@ -119,7 +116,6 @@ namespace Desktop
                 TBEmail.Text = "Введите почту";
             }
         }
-
         private void TBPassword_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TBPassword.Text == "Введите пароль")
@@ -127,7 +123,6 @@ namespace Desktop
                 TBPassword.Text = string.Empty;
             }
         }
-
         private void TBPassword_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TBPassword.Text))
@@ -135,7 +130,6 @@ namespace Desktop
                 TBPassword.Text = "Введите пароль";
             }
         }
-
         private void TBRepeatPassword_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TBRepeatPassword.Text == "Повторите пароль")
@@ -143,7 +137,6 @@ namespace Desktop
                 TBRepeatPassword.Text = string.Empty;
             }
         }
-
         private void TBRepeatPassword_LostFocus(object sender, RoutedEventArgs e)
         {
             if (string.IsNullOrEmpty(TBRepeatPassword.Text))

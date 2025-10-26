@@ -39,15 +39,17 @@ namespace Desktop
             bool status = false;
 
 
-            if (TR.NewTask(name, category, description, time, date, status, _currentUser))
+            if (TR.NewTask(_currentUser,name, category, description, time, date, status))
             {
-                MessageBox.Show("Задача успешно создана!");
 
+
+                MessageBox.Show("Задача успешно создана!");
+                
                 Main main = new Main(_currentUser);
                 main.Show();
+                this.Owner?.Close(); // Main_empty
+                this.Close();
                 
-
-                this.Close(); // Закрываем диалоговое окно
             }
 
     }

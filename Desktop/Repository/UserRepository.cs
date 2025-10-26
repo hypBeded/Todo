@@ -12,14 +12,14 @@ namespace Desktop.Repository
     {
         private static List<UserModel> registredUser = new List<UserModel>();
 
-        public UserModel UserRegistration(string login, string password, string email, List<TaskModel>  tasks )
+        public UserModel UserRegistration(string login, string password, string email)
         {
             if (registredUser.Exists(l => l.Login == login))
             {
 
                 throw new Exception("Пользователь с таким логином уже существует");
             }
-            if (registredUser.Exists(l => l.Email == email))
+            if (registredUser.Exists(l => l.Email == email)) 
             {
                 
                 throw new Exception("Пользователь с такой почтой уже существует");

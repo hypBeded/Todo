@@ -28,7 +28,14 @@
 
         <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="343" Height="452"  Background="AliceBlue" Margin="160,100,0,0">
             <ListView x:Name="TasksListView">
-               
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}" Width="120"/>
+                        <GridViewColumn Header="Категория" DisplayMemberBinding="{Binding Category}" Width="100"/>
+                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Description}" Width="120"/>
+                        
+                    </GridView>
+                </ListView.View>
             </ListView>
 
 
