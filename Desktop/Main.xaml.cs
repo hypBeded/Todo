@@ -2,8 +2,10 @@
 using Entities;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -20,34 +22,62 @@ namespace Desktop
     /// <summary>
     /// Логика взаимодействия для Main.xaml
     /// </summary>
-    public partial class Main : Window
+    public partial class Main : Window, INotifyPropertyChanged
     {
-        
-     
-        UserModel _currentUser;
-        
+        private UserModel _currentUser;
+        private TaskModel _selectedTask;
+
+        public TaskModel SelectedTask
+        {
+            get => _selectedTask;
+            set
+            {
+                _selectedTask = value;
+                OnPropertyChanged();
+                UpdateDetailFields();
+            }
+        }
+
         public Main(UserModel user)
         {
             InitializeComponent();
             _currentUser = user;
             TasksListView.ItemsSource = _currentUser.UTasks;
+
+            // Установите DataContext
             DataContext = this;
-
         }
-        public TaskModel SelectedTask { get; set; }
 
-        
-
-        private void TasksListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void TasksListView_SelectionChanged_1(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            if (TasksListView.SelectedItem is TaskModel selectedTask)
+            SelectedTask = TasksListView.SelectedItem as TaskModel;
+        }
+
+        private void UpdateDetailFields()
+        {
+            if (SelectedTask != null)
             {
-                SelectedTask = selectedTask;
+                // Эти поля теперь будут обновляться через привязку данных
+                // Уберите прямую установку текста если используете привязку
             }
-            else
-            {
-                SelectedTask = null;
-            }
+        }
+        public void RefreshTasks()
+        {
+            TasksListView.ItemsSource = null;
+            TasksListView.ItemsSource = _currentUser.UTasks;
+        }
+       
+        private void AddTask(object sender, RoutedEventArgs e)
+        {
+            AddTaskDialog addTaskDialog = new AddTaskDialog(_currentUser, false); 
+            addTaskDialog.Owner = this;
+            addTaskDialog.ShowDialog();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

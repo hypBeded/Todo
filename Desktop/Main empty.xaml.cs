@@ -47,7 +47,7 @@ namespace Desktop
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddTaskDialog addTaskDialog = new AddTaskDialog(_currentUser);
+            AddTaskDialog addTaskDialog = new AddTaskDialog(_currentUser, true);
             addTaskDialog.Owner = this;  // Устанавливаем владельца диалога
             addTaskDialog.ShowDialog();
         }

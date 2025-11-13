@@ -21,14 +21,16 @@ namespace Desktop
     public partial class AddTaskDialog : Window
     {
         private UserModel _currentUser;
-        TaskRepository TR = new TaskRepository();
-        
+        private TaskRepository TR = new TaskRepository();
+        private bool _isNewMainWindow = false;
 
-        public AddTaskDialog(UserModel user)
+        public AddTaskDialog(UserModel user, bool isNewMainWindow = false)
         {
-            InitializeComponent();  
+            InitializeComponent();
             _currentUser = user;
+            _isNewMainWindow = isNewMainWindow;
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string name = Name.Text;
@@ -38,20 +40,28 @@ namespace Desktop
             DateTime time = DateTime.Now;
             bool status = false;
 
-
-            if (TR.NewTask(_currentUser,name, category, description, time, date, status))
+            if (TR.NewTask(_currentUser, name, category, description, time, date, status))
             {
-
-
                 MessageBox.Show("Задача успешно создана!");
-                
-                Main main = new Main(_currentUser);
-                main.Show();
-                this.Owner?.Close(); // Main_empty
-                this.Close();
-                
-            }
 
-    }
+                if (_isNewMainWindow)
+                {
+                    
+                    Main main = new Main(_currentUser);
+                    main.Show();
+                    this.Owner?.Close(); 
+                }
+                else
+                {
+                    if (this.Owner is Main mainWindow)
+                    {
+                        mainWindow.TasksListView.ItemsSource = null;
+                        mainWindow.TasksListView.ItemsSource = _currentUser.UTasks;
+                    }
+                }
+
+                this.Close();
+            }
+        }
     }
 }
