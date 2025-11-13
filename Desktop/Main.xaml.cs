@@ -25,14 +25,29 @@ namespace Desktop
         
      
         UserModel _currentUser;
+        
         public Main(UserModel user)
         {
             InitializeComponent();
             _currentUser = user;
             TasksListView.ItemsSource = _currentUser.UTasks;
+            DataContext = this;
 
-            
         }
-       
+        public TaskModel SelectedTask { get; set; }
+
+        
+
+        private void TasksListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            if (TasksListView.SelectedItem is TaskModel selectedTask)
+            {
+                SelectedTask = selectedTask;
+            }
+            else
+            {
+                SelectedTask = null;
+            }
+        }
     }
 }

@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Desktop"
         mc:Ignorable="d"
-         Title="Main" Height="600" Width="800" ResizeMode="NoResize">
+        Title="Main" Height="600" Width="800" ResizeMode="NoResize">
+
+    <Window.Resources>
+        <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+    </Window.Resources>
+
     <Grid>
+        
         <Image Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Source="/Ava.png" 
              Stretch="Fill" Width="110" Height="110.10" />
         <Popup x:Name="popup" Placement="Left" AllowsTransparency="True">
@@ -19,27 +25,55 @@
         </Popup>
         <Label x:Name="NickName" Width="140" Content="Имя пользователя" HorizontalAlignment="Left" Margin="10,130,0,0" FontSize="15" HorizontalContentAlignment="Center" VerticalAlignment="Top"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="160,56,0,0">
-            <Button Content="Дом" Foreground="LightGreen" Height="40" Width="70" Background="White" FontSize="18" Margin="1,0,0,0"  BorderBrush="White"    />
-            <Button Content="Работа" Foreground="Orange" Height="40" Width="70" Background="White" FontSize="18" Margin="1,0,0,0" BorderBrush="White"    />
-            <Button Content="Учеба" Foreground="Blue" Height="40" Width="70" Background="White" FontSize="18" Margin="1,0,0,0" BorderBrush="White"  />
-            <Button Content="Отдых" Foreground="Purple" Height="40" Width="70" Background="White" FontSize="18" Margin="1,0,0,0"   BorderBrush="White"  />
+            <Button Content="Дом" Foreground="LightGreen" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0"  BorderBrush="White"    />
+            <Button Content="Работа" Foreground="Orange" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0" BorderBrush="White"    />
+            <Button Content="Учеба" Foreground="Blue" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0" BorderBrush="White"  />
+            <Button Content="Отдых" Foreground="Purple" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0"   BorderBrush="White"  />
         </StackPanel>
 
 
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="343" Height="452"  Background="AliceBlue" Margin="160,100,0,0">
-            <ListView x:Name="TasksListView">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}" Width="120"/>
-                        <GridViewColumn Header="Категория" DisplayMemberBinding="{Binding Category}" Width="100"/>
-                        <GridViewColumn Header="Описание" DisplayMemberBinding="{Binding Description}" Width="120"/>
-                        
-                    </GridView>
-                </ListView.View>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="330" Height="452"  Background="AliceBlue" Margin="160,100,0,0">
+            <ListView x:Name="TasksListView" SelectionChanged="TasksListView_SelectionChanged_1">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <!-- Чекбокс слева -->
+                            <CheckBox IsChecked="{Binding Status}" VerticalAlignment="Center" Margin="0,0,10,0"/>
+
+                            <!-- Контент справа -->
+                            <StackPanel>
+                                <TextBlock Text="{Binding Name}" 
+                               FontWeight="Bold" 
+                               HorizontalAlignment="Left"/>
+                                <TextBlock Text="{Binding time}" 
+                               FontSize="10" 
+                               Foreground="Gray"
+                               HorizontalAlignment="Left"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
             </ListView>
-
-
         </StackPanel>
+
+
+        <Border BorderBrush="Black" BorderThickness="2" Background="White" 
+        HorizontalAlignment="Right" Width="250" Height="350" Margin="0,0,30,0"  Visibility="{Binding SelectedTask, Converter={StaticResource NullToVisibilityConverter}}">
+            <StackPanel Visibility="{Binding SelectedTask, Converter={StaticResource NullToVisibilityConverter}}">
+                <TextBlock x:Name="Name" HorizontalAlignment="Center" Margin="10,5,0,0" 
+                   Text="{Binding SelectedTask.Name, ElementName=mainWindow}" FontSize="20"/>
+                    <TextBlock x:Name="Time" HorizontalAlignment="Left" Margin="10,20,0,0"
+                   Text="{Binding SelectedTask.Time, ElementName=mainWindow}" FontSize="18"/>
+                    <TextBlock x:Name="Date" HorizontalAlignment="Left" Margin="10,2,0,0"
+                   Text="{Binding SelectedTask.Date, ElementName=mainWindow}" FontSize="18"/>
+                    <TextBlock x:Name="Description" HorizontalAlignment="Left" Margin="10,15,0,0" 
+                   Text="{Binding SelectedTask.Description, ElementName=mainWindow}" FontSize="18"/>
+
+                    <Button x:Name="Compleated" Content="Готово" FontSize="17" Style="{StaticResource RoundBut15}" Margin="0,70,0,0" Width="190" Height="30"/>
+                <Button x:Name="Del" Content="Удалить" FontSize="17" Style="{StaticResource RoundBut15}" Margin="0,10,0,0" Width="190" Height="30"/>
+            </StackPanel>
+        </Border>
+
         <Label Content="Задачи" HorizontalAlignment="Left" Foreground="DarkRed" FontSize="20"  Margin="30,193,0,0" VerticalAlignment="Top"/>
         <Label Content="История" HorizontalAlignment="Left" Foreground="DarkRed" FontSize="20"  Margin="30,240,0,0" VerticalAlignment="Top"/>
 
