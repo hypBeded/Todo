@@ -13,7 +13,7 @@ namespace Desktop
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            // Если value null - скрываем элемент, иначе показываем
+           
             return value == null ? Visibility.Collapsed : Visibility.Visible;
         }
 

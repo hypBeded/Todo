@@ -30,11 +30,25 @@ namespace Desktop
             _currentUser = user;
             _isNewMainWindow = isNewMainWindow;
         }
-
+        string category;
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string name = Name.Text;
-            string category = Category.Text;
+            string name;
+            if (string.IsNullOrEmpty(Name.Text))
+            {
+                return;
+            }
+            else
+            {
+                name = Name.Text;
+            }
+
+            if (category == null)
+            {
+                MessageBox.Show("Выберите категорию");
+                return;
+            }
+
             string description = Description.Text;
             DateTime date = DTP.SelectedDate ?? DateTime.Now;
             DateTime time = DateTime.Now;
@@ -61,6 +75,16 @@ namespace Desktop
                 }
 
                 this.Close();
+            }
+        }
+
+
+       
+        private void Category_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Category.SelectedItem is ComboBoxItem selectedItem)
+            {
+                category = selectedItem.Tag.ToString();
             }
         }
     }

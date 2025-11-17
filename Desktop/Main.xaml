@@ -40,7 +40,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
                         <Border x:Name="border" CornerRadius="60" Background="#F96060" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                            
+
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -85,18 +85,18 @@
                 </StackPanel>
             </Border>
         </Popup>
-        <Label x:Name="NickName" Width="140" Content="Имя пользователя" HorizontalAlignment="Left" Margin="10,130,0,0" FontSize="15" HorizontalContentAlignment="Center" VerticalAlignment="Top"/>
+        <Label x:Name="NickName" Width="145" Content="Имя пользователя" HorizontalAlignment="Left" Margin="10,126,0,0" FontSize="15" HorizontalContentAlignment="Left" VerticalAlignment="Top"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="160,56,0,0">
-            <Button Content="Дом" Foreground="LightGreen" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0"  BorderBrush="White"    />
-            <Button Content="Работа" Foreground="Orange" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0" BorderBrush="White"    />
-            <Button Content="Учеба" Foreground="Blue" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0" BorderBrush="White"  />
-            <Button Content="Отдых" Foreground="Purple" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0"   BorderBrush="White"  />
+            <Button Content="Дом" Foreground="LightGreen" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0"  BorderBrush="White" Click="HomeClick"    />
+            <Button Content="Работа" Foreground="Orange" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0" BorderBrush="White" Click="WorkClick"    />
+            <Button Content="Учеба" Foreground="Blue" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0" BorderBrush="White" Click="StudyClick"  />
+            <Button Content="Отдых" Foreground="Purple" Height="40" Width="70" Background="White" FontSize="18" Margin="10,0,4,0"   BorderBrush="White" Click="OtdixClick"  />
         </StackPanel>
 
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" Width="330" Height="452"  Background="AliceBlue" Margin="160,100,0,0">
-
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView x:Name="TasksListView" SelectionChanged="TasksListView_SelectionChanged_1"    >
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Top" 
+            Height="452" Width="330" Background="AliceBlue" Margin="160,100,0,0">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="452" Width="330">
+                <ListView x:Name="TasksListView" SelectionChanged="TasksListView_SelectionChanged_1">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" Margin="5">
@@ -108,7 +108,7 @@
                                     <TextBlock Text="{Binding Name}" 
                                FontWeight="Bold" 
                                HorizontalAlignment="Left"/>
-                                    <TextBlock Text="{Binding time}" 
+                                    <TextBlock Text="{Binding TimeDisplay}" 
                                FontSize="10" 
                                Foreground="Gray"
                                HorizontalAlignment="Left"/>
@@ -120,27 +120,27 @@
             </ScrollViewer>
         </StackPanel>
 
-        
-            <Border BorderBrush="Black" BorderThickness="2" Background="White" 
-        HorizontalAlignment="Right" Width="250" Height="350" Margin="0,0,30,0"  Visibility="{Binding SelectedTask, Converter={StaticResource NullToVisibilityConverter}}">
-                <StackPanel Visibility="{Binding SelectedTask, Converter={StaticResource NullToVisibilityConverter}}">
-                    <TextBlock HorizontalAlignment="Center" Margin="10,5,0,0" 
+
+        <Border BorderBrush="Black" BorderThickness="2" Background="White" 
+        HorizontalAlignment="Right" Width="250" Height="350" Margin="0,60,20,0"  Visibility="{Binding SelectedTask, Converter={StaticResource NullToVisibilityConverter}}">
+            <StackPanel Visibility="{Binding SelectedTask, Converter={StaticResource NullToVisibilityConverter}}">
+                <TextBlock HorizontalAlignment="Center" Margin="10,5,0,0" 
                            Text="{Binding SelectedTask.Name}" FontSize="20" FontWeight="Bold"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,20,0,0"
+                <TextBlock HorizontalAlignment="Left" Margin="10,20,0,0"
                            Text="{Binding SelectedTask.TimeDisplay}" FontSize="18"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,2,0,0"
+                <TextBlock HorizontalAlignment="Left" Margin="10,2,0,0"
                            Text="{Binding SelectedTask.DateDisplay}" FontSize="18"/>
-                    <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" 
+                <TextBlock HorizontalAlignment="Left" Margin="10,15,0,0" 
                            Text="{Binding SelectedTask.Description}" FontSize="18" TextWrapping="Wrap"/>
 
-                    <Button x:Name="Compleated" Content="Готово" FontSize="17" Style="{StaticResource RoundBut15}" Margin="0,70,0,0" Width="190" Height="30"/>
-                    <Button x:Name="Del" Content="Удалить" FontSize="17" Style="{StaticResource RoundBut15}" Margin="0,10,0,0" Width="190" Height="30"/>
-                </StackPanel>
-            </Border>
-        
-        <Label Content="Задачи" HorizontalAlignment="Left" Foreground="DarkRed" FontSize="20"  Margin="30,193,0,0" VerticalAlignment="Top"/>
-        <Label Content="История" HorizontalAlignment="Left" Foreground="DarkRed" FontSize="20"  Margin="30,240,0,0" VerticalAlignment="Top"/>
-        
+                <Button x:Name="Compleated" Content="Готово" FontSize="17" Style="{StaticResource RoundBut15}" Margin="0,70,0,0" Width="190" Height="30" Click="Compleated_Click"/>
+                <Button x:Name="Del" Content="Удалить" FontSize="17" Style="{StaticResource RoundBut15}" Margin="0,10,0,0" Width="190" Height="30" Click="Del_Click"/>
+            </StackPanel>
+        </Border>
+
+        <Label Content="Задачи" HorizontalAlignment="Left" Foreground="DarkRed" FontSize="20"  Margin="8,210,0,0" VerticalAlignment="Top" MouseLeftButtonDown="TaskList"/>
+        <Label Content="История" HorizontalAlignment="Left" Foreground="DarkRed" FontSize="20"  Margin="8,240,0,0" VerticalAlignment="Top" MouseLeftButtonDown="EndedTasks"/>
+
 
 
     </Grid>
