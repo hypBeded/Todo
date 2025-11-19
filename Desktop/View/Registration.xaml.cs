@@ -1,13 +1,25 @@
-﻿using Desktop.Repository;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using Desktop.Repository;
 
-namespace Desktop
+namespace Desktop.View
 {
     /// <summary>
     /// Логика взаимодействия для Registration.xaml
     /// </summary>
-    public partial class Registration : Window
+    public partial class Registration : Page
     {
         UserRepository UR = new UserRepository();
         Validate Validate = new Validate();
@@ -24,38 +36,36 @@ namespace Desktop
             string repeatPassword = TBRepeatPassword.Text.Trim();
             string login = TBUserName.Text.Trim();
 
-           
+
 
             if (login.Length < 3)
             {
                 MessageBox.Show("Имя пользователя должен состоять минимум из 3 символов", "Ошибка");
-                return; 
+                return;
             }
 
             if (!Validate.ValidateEmail(email))
             {
                 MessageBox.Show("Некорректный email.", "Ошибка");
-                return; 
+                return;
             }
 
             if (!Validate.ValidatePassword(password))
             {
                 MessageBox.Show("Пароль должен содержать минимум 6 символов.", "Ошибка");
-                return; 
+                return;
             }
 
             if (password != repeatPassword)
             {
                 MessageBox.Show("Пароли не совпадают.", "Ошибка");
-                return; 
+                return;
             }
             try
             {
                 var user = UR.UserRegistration(login, password, email);
 
-                Main_empty main_Empty = new Main_empty(user);
-                main_Empty.Show();
-                this.Close();
+              /////////////////////
             }
             catch (Exception ex)
             {
@@ -66,14 +76,12 @@ namespace Desktop
 
         private void BackToLogIn(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            /////////////////////
         }
-///
+        ///
         private void TBUserName_GotFocus(object sender, RoutedEventArgs e)
         {
-            if(TBUserName.Text == "Введите имя пользователя")
+            if (TBUserName.Text == "Введите имя пользователя")
             {
                 TBUserName.Text = string.Empty;
             }
@@ -129,3 +137,4 @@ namespace Desktop
         }
     }
 }
+
