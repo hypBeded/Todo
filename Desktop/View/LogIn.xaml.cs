@@ -50,10 +50,13 @@ namespace Desktop.View
             }
             try
             {
-                //var user = UR.UserAuthenticate(email, password);
-                //Main_empty main_Empty = new Main_empty(user);
-                //main_Empty.Show();
-                //this.Close();
+                var user = UR.UserAuthenticate(email, password);
+
+                if (Application.Current.MainWindow is MainWindow mainWindow)
+                {
+                    mainWindow.NavigationFrame.Navigate(new Main_empty(user));
+                }
+                
             }
             catch (Exception ex)
             {

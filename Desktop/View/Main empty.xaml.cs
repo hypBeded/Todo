@@ -44,16 +44,39 @@ namespace Desktop.View
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow mainWindow = new MainWindow();
-            //mainWindow.Show();
-            //this.Close();
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.NavigationFrame.Navigate(new LogIn());
+            }
+
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //AddTaskDialog addTaskDialog = new AddTaskDialog(_currentUser, true);
-            //addTaskDialog.Owner = this;  // Устанавливаем владельца диалога
-            //addTaskDialog.ShowDialog();
+            var dialogWindow = new NavigationWindow
+            {
+                Title = "Добавить задачу",
+                Content = new AddTaskDialog(_currentUser, true),
+                Width = 420,
+                Height = 300,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                ResizeMode = ResizeMode.NoResize,
+                ShowsNavigationUI = false // Скрываем навигационную панель
+            };
+
+            dialogWindow.Owner = Application.Current.MainWindow;
+            var result = dialogWindow.ShowDialog();
+
+            if (result == true) // Если диалог закрыт с успешным результатом
+            {
+                if (Application.Current.MainWindow is MainWindow mainWindow)
+                {
+                    mainWindow.NavigationFrame.Navigate(new Main(_currentUser));
+                }
+            }
+
+
         }
 
 

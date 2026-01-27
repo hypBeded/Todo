@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,63 @@ namespace Desktop.View
     /// </summary>
     public partial class AddTaskDialog : Page
     {
-        public AddTaskDialog()
+        public AddTaskDialog(UserModel user, bool isNewMainWindow = false)
         {
             InitializeComponent();
+            _currentUser = user;
+            _isNewMainWindow = isNewMainWindow;
+        }
+        private UserModel _currentUser;
+        private TaskRepository TR = new TaskRepository();
+        private bool _isNewMainWindow = false;
+        string category;
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string name;
+            if (string.IsNullOrEmpty(Name.Text))
+            {
+                return;
+            }
+            else
+            {
+                name = Name.Text;
+            }
+
+            if (category == null)
+            {
+                MessageBox.Show("Выберите категорию");
+                return;
+            }
+
+            string description = Description.Text;
+            DateTime date = DTP.SelectedDate ?? DateTime.Now;
+            DateTime time = DateTime.Now;
+            bool status = false;
+
+            if (TR.NewTask(_currentUser, name, category, description, time, date, status))
+            {
+                MessageBox.Show("Задача успешно создана!");
+
+                NavigationWindow parentWindow = Window.GetWindow(this) as NavigationWindow;
+
+                // Закрываем диалоговое окно
+                if (parentWindow != null)
+                {
+                    // Устанавливаем DialogResult в true для указания успешного завершения
+                    parentWindow.DialogResult = true;
+                    parentWindow.Close();
+                }
+            }
+        }
+
+
+
+        private void Category_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (Category.SelectedItem is ComboBoxItem selectedItem)
+            {
+                category = selectedItem.Tag.ToString();
+            }
         }
     }
 }
