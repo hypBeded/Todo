@@ -65,6 +65,9 @@ namespace Desktop.View
             {
                 var user = UR.UserRegistration(login, password, email);
 
+
+
+
               /////////////////////
             }
             catch (Exception ex)
@@ -76,9 +79,12 @@ namespace Desktop.View
 
         private void BackToLogIn(object sender, RoutedEventArgs e)
         {
-            /////////////////////
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.NavigationFrame.Navigate(new LogIn());
+            }
         }
-        ///
+ 
         private void TBUserName_GotFocus(object sender, RoutedEventArgs e)
         {
             if (TBUserName.Text == "Введите имя пользователя")

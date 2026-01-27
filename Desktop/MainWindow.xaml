@@ -5,24 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Desktop"
         mc:Ignorable="d"
-        Title="Log in" Height="600" Width="800" ResizeMode="NoResize">
+        Title="" Height="600" Width="800" ResizeMode="NoResize">
     <Grid>
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
-        <Label Content="Добро пожаловать!" FontSize="32
-               " HorizontalAlignment="Right" Margin="0,66,69,0" VerticalAlignment="Top"/>
-        <Label Content="Почта" FontSize ="20"  HorizontalAlignment="Left" Margin="412,200,0,0" VerticalAlignment="Top"/>
-        <Label Content="Пароль" FontSize ="20" HorizontalAlignment="Left" Margin="412,280,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="TBEmail" HorizontalAlignment="Left" BorderBrush="White" Margin="412,236,0,0" TextWrapping="Wrap" Foreground="Gray"  Text="Почта" VerticalAlignment="Top" Width="266" Height="24" 
-                 FontSize="16" GotFocus="TBEmail_GotFocus" LostFocus="TBEmail_LostFocus"  />
-        <TextBox x:Name="TBPassword" HorizontalAlignment="Left" BorderBrush="White" Margin="412,318,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" Text="Пароль" Height="24" 
-                 FontSize="15"    Foreground="Gray" GotFocus="TBPassword_GotFocus" LostFocus="TBPassword_LostFocus"  />
-        <Label Content="Восстановить пароль" HorizontalAlignment="Left" Margin="545,390,0,0" VerticalAlignment="Top" FontSize="18" />
-        <Button Style="{StaticResource RoundBut15}" 
-                Content="Войти" HorizontalAlignment="Left" Margin="412,438,0,0" VerticalAlignment="Top" Width="327" Height="37"  BorderBrush="White" FontSize="18 " Click="LogIn"/>
-        <Button Style="{StaticResource RoundBut15}" 
-                Content="Зарегестрироваться" HorizontalAlignment="Left" Margin="412,482,0,0" VerticalAlignment="Top" Width="327" Height="37" BorderBrush="White" FontSize="18 " Click="Registation"/>
-        <Image Margin="60,60,486,267" Source="/logo.png" Stretch="Fill"/>
-
-
     </Grid>
 </Window>
